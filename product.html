@@ -30,7 +30,69 @@
 
     <!-- Bootstrap & Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+    /* Gallery Item Container */
+    .product-grid-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: #fff;
+        height: 100%;
+    }
+
+    /* Image Styling */
+    .product-grid-img {
+        width: 100%;
+        height: 300px; /* Fixed height for uniformity */
+        transition: transform 0.5s ease;
+    }
     
+    /* Style for Bowl/Grain images (Fill the box) */
+    .img-cover {
+        object-fit: cover;
+    }
+
+    /* Style for Bag images (Show full bag, don't crop) */
+    .img-contain {
+        object-fit: contain; 
+        padding: 5px;
+    }
+
+    /* Hover Zoom Effect */
+    .product-grid-item:hover .product-grid-img {
+        transform: scale(1.05);
+    }
+
+    /* The Overlay (Hidden by default) */
+    .product-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(52, 173, 84, 0.85); /* Primary Color Tint */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; /* Invisible initially */
+        transition: opacity 0.3s ease;
+    }
+
+    /* Show Overlay on Hover */
+    .product-grid-item:hover .product-overlay {
+        opacity: 1;
+    }
+
+    /* Text inside Overlay */
+    .overlay-text {
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
 </head>
 
 <body>
@@ -129,62 +191,115 @@
                 <h6 class="text-primary text-uppercase">Products</h6>
                 <h1 class="display-5">Our Fresh & Organic Products</h1>
             </div>
-            <div class="owl-carousel product-carousel px-5">
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/dal2.jpg" alt="">
-                        <h6 class="mb-3">Toor Daal</h6>
-                        <!-- <h5 class="text-primary mb-0">$19.00</h5> -->
-                        <!-- <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div> -->
+            
+            <div class="row g-3 justify-content-center">
+                
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-cover" src="img/dal2.jpg" alt="Toor Daal">
+                        <div class="product-overlay">
+                            <span class="overlay-text">Toor Daal</span>
+                        </div>
                     </div>
                 </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/channadal.jpg" alt="">
-                        <h6 class="mb-3">Chana Daal</h6>
-                        <!-- <h5 class="text-primary mb-0">$19.00</h5> -->
-                        <!-- <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div> -->
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-cover" src="img/channadal.jpg" alt="Chana Daal">
+                        <div class="product-overlay">
+                            <span class="overlay-text">Chana Daal</span>
+                        </div>
                     </div>
                 </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/uridfilter.jpg" alt="">
-                        <h6 class="mb-3">Urid filter</h6>
-                        <!-- <h5 class="text-primary mb-0">$19.00</h5> -->
-                        <!-- <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div> -->
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-cover" src="img/uridfilter.jpg" alt="Urid Filter">
+                        <div class="product-overlay">
+                            <span class="overlay-text">Urid Filter</span>
+                        </div>
                     </div>
                 </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/dal1.png" alt="">
-                        <h6 class="mb-3">Masoor Daal</h6>
-                        <!-- <h5 class="text-primary mb-0">$19.00</h5> -->
-                        <!-- <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div> -->
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-cover" src="img/dal1.png" alt="Masoor Daal">
+                        <div class="product-overlay">
+                            <span class="overlay-text">Masoor Daal</span>
+                        </div>
                     </div>
                 </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/dal3.jpg" alt="">
-                        <h6 class="mb-3">Moong Daal</h6>
-                        <!-- <h5 class="text-primary mb-0">$19.00</h5> -->
-                        <!-- <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div> -->
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-cover" src="img/dal3.jpg" alt="Moong Daal">
+                        <div class="product-overlay">
+                            <span class="overlay-text">Moong Daal</span>
+                        </div>
                     </div>
                 </div>
+
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/1.jpg" alt="Pai Cycle">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/2.jpg" alt="Dawat">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/3.jpg" alt="Airawat">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/4.jpg" alt="Apple">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/5.jpg" alt="Raju No 1">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/6.jpg" alt="Pai Star">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/7.jpg" alt="Double Orange">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/8.jpg" alt="Hiramani">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/9.jpg" alt="Bullet">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-grid-item">
+                        <img class="product-grid-img img-contain" src="img/10.jpg" alt="5 Star">
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
